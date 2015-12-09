@@ -1,5 +1,4 @@
 var dgram = require("dgram"),
-    client = dgram.createSocket('udp4'),
     Commander  = require('commander'),
     cluster = require('cluster'),
     os = require('os'),
@@ -20,9 +19,26 @@ require('./q-flow');
 var port = commander.port || Math.floor(Math.random() * (65553) + 1);
 var workers = commander.workers || os.cpus().length + 1;
 
+var client = dgram.createSocket('udp4');
+
+client.on("error", function (err) {
+  console.error("UDP error:\n" + err.stack);
+  client.close();
+  process.exit(1);
+});
+
+client.bind(port);
+
 function sendOne(ip, port){
   return new Promise(function(resolve, reject){
-    var msg = new Buffer('X');
+    // ICMP ping packet.
+    var msg = new Buffer ([
+        0x08, 0x00, 0x43, 0x52, 0x00, 0x01, 0x0a, 0x09,
+        0x61, 0x62, 0x63, 0x64, 0x65, 0x66, 0x67, 0x68,
+        0x69, 0x6a, 0x6b, 0x6c, 0x6d, 0x6e, 0x6f, 0x70,
+        0x71, 0x72, 0x73, 0x74, 0x75, 0x76, 0x77, 0x61,
+        0x62, 0x63, 0x64, 0x65, 0x66, 0x67, 0x68, 0x69]);
+        
     client.send(msg, 0, msg.length, port, ip, function(err){
       return err ? reject(err) : resolve();
     });
