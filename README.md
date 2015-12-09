@@ -11,7 +11,7 @@ Flood a host with UDP packets in Node.js.
 
 It's simple to use.
 
-    Usage: flood.js [options]
+    Usage: udp-flood.js [options]
     
     Options:
     

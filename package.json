@@ -2,7 +2,7 @@
   "name": "udp-flood",
   "version": "0.0.3",
   "description": "Flood a host with UDP packets in Node.js.",
-  "main": "flood.js",
+  "main": "udp-flood.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

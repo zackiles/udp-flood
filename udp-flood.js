@@ -6,7 +6,7 @@ var dgram = require("dgram"),
     q = require('q');
     
 var commander = Commander
-  .option('-h, --host <host>', 'Host Name/IP.')
+  .option('-h, --host <host>', 'Host Name/IP.', String)
   .option('-w, --workers <workers>', 'Worker count.', parseInt)
   .option('-p, --port <port>', 'Port number.', parseInt)
   .option('-s, --silent', 'Silence packet count logging.')
@@ -45,6 +45,7 @@ function runWorker(){
     return console.log('done');
   });
 }
+if(!commander.host) return console.log('No host specified. Exiting.');
 
 if(cluster.isMaster){
   for (var i = 0; i < workers; i++) {
