@@ -1,6 +1,6 @@
 {
   "name": "udp-flood",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "Flood a host with UDP packets in Node.js.",
   "main": "udp-flood.js",
   "scripts": {
@@ -17,6 +17,7 @@
   },
   "dependencies": {
     "commander": "^2.9.0",
+    "idle-gc": "^1.0.1",
     "q": "^1.4.1"
   }
 }

@@ -3,6 +3,7 @@ var dgram = require("dgram"),
     Commander  = require('commander'),
     cluster = require('cluster'),
     os = require('os'),
+    idleGC = require('idle-gc'),
     q = require('q');
     
 var commander = Commander
@@ -29,6 +30,7 @@ function sendOne(ip, port){
 }
 
 function runWorker(){
+  idleGC.start(5000);
   var packetsSent = 0;
   console.log('Flooding', commander.host, 'with UDP packets on port', port);
   // Small timeout to read the msg above before packet counts print to console.
