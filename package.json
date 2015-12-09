@@ -8,6 +8,13 @@
   },
   "author": "Zachary Iles <zack.iles@gmail.com>",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/zackiles/udp-flood"
+  },
+  "bugs": {
+    "url": "https://github.com/zackiles/udp-flood/issues"
+  },
   "dependencies": {
     "commander": "^2.9.0",
     "q": "^1.4.1"
