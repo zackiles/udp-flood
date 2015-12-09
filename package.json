@@ -1,6 +1,6 @@
 {
   "name": "udp-flood",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Flood a host with UDP packets in Node.js.",
   "main": "udp-flood.js",
   "scripts": {

@@ -15,10 +15,11 @@ It's simple to use.
     
     Options:
     
-      -h, --help               output usage information
-      -h, --host <host>        Host Name/IP
+      -h, --help               Output usage information.
+      -h, --host <host>        Host Name/IP.
       -p, --port <port>        If not defined, program will use random ports.
       -w, --workers <workers>  Number of workers to fork in the cluster, default is CPU count.
+      -d, --delay <delay>      Delay in ms between packet sending (per worker). Defaults to 0.
       -s, --silent <silent>    Silences printing the sent packet count on each cluster.
 
 ### Examples
